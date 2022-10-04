@@ -27,9 +27,11 @@
     "lint": "eslint src/**/*{.ts,.tsx}"
   },
   "dependencies": {
+    "@gouvfr/dsfr": "^1.7.2",
     "@stencil/core": "^2.13.0"
   },
   "devDependencies": {
+    "@stencil/sass": "^2.0.0",
     "@types/jest": "^27.0.3",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
