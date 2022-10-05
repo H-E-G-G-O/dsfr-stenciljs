@@ -1,0 +1,29 @@
+@import '../../../node_modules/@gouvfr/dsfr/dist/component/logo/logo.min.css';
+
+/*custom */
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+.fr-logo--header {
+  font-size: 0.7875rem;
+  padding: 0.75rem;
+  margin: -0.75rem;
+}
+
+.fr-logo--header::before {
+  width: 2.0625rem;
+  height: 0.75rem;
+  margin-bottom: 0.25rem;
+  background-size: 2.0625rem 0.84375rem, 2.0625rem 0.75rem, 0;
+  background-position: 0 -0.046875rem, 0 0, 0 0;
+}
+
+.fr-logo--header::after {
+  min-width: 1.96875rem;
+  background-size: 3.9375rem 2.8125rem;
+  background-position: 0 calc(100% + 1.40625rem);
+  padding-top: 1.65625rem;
+}
