@@ -11,15 +11,6 @@ export class Logo {
   /** Niveau du titre pour générer le tag HTML et conserver la sématique (optionnel) */
   @Prop({ reflect: true }) headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 
-  onSlotchange() {
-    this.el.shadowRoot
-      .querySelector('slot')
-      ?.assignedElements({ flatten: true })
-      .forEach(item => {
-        item.setAttribute('class', 'fr-header__service-title');
-      });
-  }
-
   private get headingLevelFormat() {
     return 'h' + this.headingLevel;
   }
