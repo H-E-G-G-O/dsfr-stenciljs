@@ -9,7 +9,7 @@ export class Header implements ComponentInterface {
   // @Element() el!: HTMLElement;
 
   @State() opened = false;
-  open() {
+  private open() {
     this.opened = !this.opened;
   }
 
