@@ -1,4 +1,4 @@
-import { Component, h, State, Element, ComponentInterface } from '@stencil/core';
+import { Component, h, State, ComponentInterface } from '@stencil/core';
 
 @Component({
   tag: 'fr-header',
@@ -6,7 +6,7 @@ import { Component, h, State, Element, ComponentInterface } from '@stencil/core'
   shadow: true,
 })
 export class Header implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  // @Element() el!: HTMLElement;
 
   @State() opened = false;
   open() {
@@ -15,14 +15,14 @@ export class Header implements ComponentInterface {
 
   templateService: HTMLElement;
 
-  handleClick() {
+  /* handleClick() {
     (this.el.querySelector('[slot=band]') as HTMLLinkElement).click();
   }
-
+*/
   componentWillLoad() {
     if (this.el.querySelector('[slot=service]')) {
       this.templateService = (
-        <div class="fr-header__service" onClick={() => this.handleClick()}>
+        <div class="fr-header__service">
           <slot name="service"></slot>
         </div>
       );
