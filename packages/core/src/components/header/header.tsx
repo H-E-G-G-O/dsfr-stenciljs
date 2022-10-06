@@ -1,4 +1,4 @@
-import { Component, h, State, ComponentInterface } from '@stencil/core';
+import { Component, h, State, Element, ComponentInterface } from '@stencil/core';
 
 @Component({
   tag: 'fr-header',
