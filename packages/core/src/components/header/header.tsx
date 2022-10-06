@@ -10,6 +10,7 @@ export class Header {
   open() {
     this.opened = !this.opened;
   }
+
   render() {
     return (
       <header role="banner" class="fr-header">
@@ -29,9 +30,7 @@ export class Header {
                     </button>
                   </div>
                 </div>
-                <div class="fr-header__service">
-                  <p class="fr-header__service-title">Système de Design de l'État</p>
-                </div>
+                <slot></slot>
               </div>
             </div>
           </div>
