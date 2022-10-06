@@ -9,7 +9,7 @@ export class Logo {
   @Element() el!: HTMLElement;
 
   /** Niveau du titre pour générer le tag HTML et conserver la sématique (optionnel) */
-  @Prop({ reflect: true }) headingLevel?: 1 | 2 | 3 | 4 | 5 | 6 = 1;
+  @Prop({ reflect: true }) headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 
   onSlotchange() {
     this.el.shadowRoot
@@ -21,7 +21,7 @@ export class Logo {
   }
 
   private get headingLevelFormat() {
-    return 'h' + ([1, 2, 3, 4, 5, 6].includes(this.headingLevel) ? this.headingLevel : 1);
+    return 'h' + this.headingLevel;
   }
 
   render() {

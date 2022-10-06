@@ -7,8 +7,8 @@ import { Component, h, State } from '@stencil/core';
 })
 export class Header {
   @State() opened = false;
-  open() {
-    this.opened = !this.opened;
+  close() {
+    this.opened = false;
   }
 
   render() {
@@ -17,21 +17,7 @@ export class Header {
         <div class="fr-header__body">
           <div class="fr-container">
             <div class="fr-header__body-row">
-              <div class="fr-header__brand fr-enlarge-link">
-                <div class="fr-header__brand-top">
-                  <div class="fr-header__logo">
-                    <a href="https://www.systeme-de-design.gouv.fr/" title="Accueil - Nom de l’entité (ministère, secrétariat d‘état, gouvernement)">
-                      <slot name="logo"></slot>
-                    </a>
-                  </div>
-                  <div class="fr-header__navbar">
-                    <button class="fr-btn--menu fr-btn" aria-controls="modal-626" aria-haspopup="menu" id="button-627" title="Menu" onClick={() => this.open()}>
-                      Menu
-                    </button>
-                  </div>
-                </div>
-                <slot></slot>
-              </div>
+              <slot></slot>
             </div>
           </div>
         </div>
@@ -44,7 +30,7 @@ export class Header {
           aria-labelledby="button-627"
         >
           <div class="fr-container">
-            <button class="fr-btn--close fr-btn" aria-controls="modal-626" title="Fermer" onClick={() => this.open()}>
+            <button class="fr-btn--close fr-btn" aria-controls="modal-626" title="Fermer" onClick={() => this.close()}>
               Fermer
             </button>
             <div class="fr-header__menu-links"></div>
