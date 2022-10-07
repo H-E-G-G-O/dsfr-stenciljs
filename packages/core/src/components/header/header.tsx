@@ -1,4 +1,4 @@
-import { Component, h, State, Element, ComponentInterface } from '@stencil/core';
+import { Component, h, State, Element, ComponentInterface, Prop } from '@stencil/core';
 
 @Component({
   tag: 'fr-header',
@@ -12,6 +12,9 @@ export class Header implements ComponentInterface {
   private open() {
     this.opened = !this.opened;
   }
+
+  @Prop() modalIdsProp: string = `modalIds-${modalIds++}`;
+  @Prop() buttonMenuIdsProp: string = `buttonMenuIds-${buttonMenuIds++}`;
 
   templateService: HTMLElement;
 
@@ -41,7 +44,7 @@ export class Header implements ComponentInterface {
                     <slot name="band"></slot>
                   </div>
                   <div class="fr-header__navbar">
-                    <button class="fr-btn--menu fr-btn" aria-controls="modal-626" aria-haspopup="menu" id="button-627" title="Menu" onClick={() => this.open()}>
+                    <button class="fr-btn--menu fr-btn" aria-controls={this.modalIdsProp} aria-haspopup="menu" id={this.buttonMenuIdsProp} title="Menu" onClick={() => this.open()}>
                       Menu
                     </button>
                   </div>
@@ -56,11 +59,11 @@ export class Header implements ComponentInterface {
             'fr-header__menu fr-modal': true,
             [`fr-modal--opened`]: this.opened,
           }}
-          id="modal-626"
-          aria-labelledby="button-627"
+          id={this.modalIdsProp}
+          aria-labelledby={this.buttonMenuIdsProp}
         >
           <div class="fr-container">
-            <button class="fr-btn--close fr-btn" aria-controls="modal-626" title="Fermer" onClick={() => this.open()}>
+            <button class="fr-btn--close fr-btn" aria-controls={this.modalIdsProp} title="Fermer" onClick={() => this.open()}>
               Fermer
             </button>
             <div class="fr-header__menu-links"></div>
@@ -71,3 +74,6 @@ export class Header implements ComponentInterface {
     );
   }
 }
+
+let modalIds = 0;
+let buttonMenuIds = 0;
